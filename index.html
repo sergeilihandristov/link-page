@@ -24,11 +24,11 @@
       max-width: 400px;
       margin: 0 auto;
     }
-   .link {
+    .link {
       display: flex;
-      flex-direction: column;   /* элементы в колонку */
-      align-items: center;      /* по центру */
-      gap: 8px;
+      flex-direction: column;   /* сверху блок с иконкой+текстом, снизу подпись */
+      align-items: center;      /* всё по центру */
+      gap: 6px;
       padding: 15px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 12px;
@@ -40,9 +40,14 @@
     .link:hover {
       background: rgba(255, 255, 255, 0.25);
     }
-    .link i {
+    .link-top {
+      display: flex;
+      align-items: center;
+      gap: 8px; /* расстояние между иконкой и текстом */
+    }
+    .link-top i {
       font-size: 22px;
-      width: 25px;  /* одинаковая ширина для выравнивания */
+      width: 25px;
       text-align: center;
     }
     .avatar {
@@ -52,11 +57,6 @@
       object-fit: cover;
       margin-bottom: 20px;
       border: 3px solid #fff;
-    }
-    .link-text {
-      display: flex;
-      flex-direction: column; /* основной текст + подпись вертикально */
-      align-items: center; /* прижать к центру */
     }
     .subtext {
       font-size: 12px;
@@ -70,27 +70,53 @@
   <h1>My socials</h1>
   <div class="links">
     <a class="link" href="https://sketchfab.com/sergeilihandristov" target="_blank">
-      <i class="fab fa-uncharted"></i> Sketchfab
+      <div class="link-top">
+        <i class="fab fa-uncharted"></i>
+        <span>Sketchfab</span>
+      </div>
     </a>
+
     <a class="link" href="https://artstation.com/sergeilihandristov" target="_blank">
-      <i class="fab fa-artstation"></i> Artstation
+      <div class="link-top">
+        <i class="fab fa-artstation"></i>
+        <span>Artstation</span>
+      </div>
     </a>
+
     <a class="link" href="mailto:sergeilihandristov@gmail.com" target="_blank">
-      <i class="fa-regular fa-envelope"></i> E-mail
+      <div class="link-top">
+        <i class="fa-regular fa-envelope"></i>
+        <span>E-mail</span>
+      </div>
     </a>
+
     <a class="link" href="https://instagram.com/sergeilikhandristov" target="_blank">
-      <i class="fab fa-instagram"></i> Instagram
+      <div class="link-top">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+      </div>
     </a>
+
     <a class="link" href="https://t.me/Archangel1408" target="_blank">
-      <i class="fab fa-telegram"></i> Telegram
+      <div class="link-top">
+        <i class="fab fa-telegram"></i>
+        <span>Telegram</span>
+      </div>
     </a>
-   <a class="link" href="https://t.me/+KaH0ltQxGB9iN2Ey" target="_blank">
-      <i class="fab fa-telegram"></i>
-      <div class="maintext">Telegram Group</div>
+
+    <a class="link" href="https://t.me/+KaH0ltQxGB9iN2Ey" target="_blank">
+      <div class="link-top">
+        <i class="fab fa-telegram"></i>
+        <span>Telegram Group</span>
+      </div>
       <div class="subtext">new models here</div>
     </a>
+
     <a class="link" href="https://x.com/SLihandristov" target="_blank">
-      <i class="fab fa-x-twitter"></i> X (Twitter)
+      <div class="link-top">
+        <i class="fab fa-x-twitter"></i>
+        <span>X (Twitter)</span>
+      </div>
     </a>
   </div>
 </body>
