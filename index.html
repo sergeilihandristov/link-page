@@ -25,11 +25,9 @@
       margin: 0 auto;
     }
     .link {
-      display: flex;
-      flex-direction: column; /* делает перенос на новую строку */
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      display: flex;                /* иконка и текст в одну строку */
+      align-items: center;          /* выравнивание по вертикали */
+      gap: 12px;                    /* расстояние между иконкой и текстом */
       padding: 15px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 12px;
@@ -43,24 +41,26 @@
     }
     .link i {
       font-size: 22px;
-    }
-    .link i {
-      font-size: 22px;
-      width: 25px;  /* одинаковая ширина для всех иконок */
+      width: 25px;  /* одинаковая ширина для выравнивания */
       text-align: center;
     }
     .avatar {
-      width: 120px;          /* размер аватарки */
+      width: 120px;
       height: 120px;
-      border-radius: 50%;    /* делает её круглой */
-      object-fit: cover;     /* обрезает по кругу без искажений */
-      margin-bottom: 20px;   /* отступ вниз */
-      border: 3px solid #fff; /* белая рамка (можно убрать) */
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #fff;
+    }
+    .link-text {
+      display: flex;
+      flex-direction: column; /* основной текст + подпись вертикально */
+      align-items: flex-start; /* прижать к левому краю */
     }
     .subtext {
-      font-size: 12px;     /* меньший размер */
-      color: #ccc;         /* светло-серый (можешь поменять) */
-      margin-top: 4px;     /* отступ сверху */
+      font-size: 12px;
+      color: #ccc;
+      margin-top: 2px;
     }
   </style>
 </head>
@@ -86,14 +86,13 @@
     <a class="link" href="https://t.me/+KaH0ltQxGB9iN2Ey" target="_blank">
       <i class="fab fa-telegram"></i>
       <div class="link-text">
-      Telegram Group
-      <div class="subtext">new models here</div>
+        Telegram Group
+        <div class="subtext">new models here</div>
       </div>
     </a>
     <a class="link" href="https://x.com/SLihandristov" target="_blank">
       <i class="fab fa-x-twitter"></i> X (Twitter)
     </a>
-    <!-- можно добавить любые другие -->
   </div>
 </body>
 </html>
