@@ -48,9 +48,18 @@
       width: 25px;  /* одинаковая ширина для всех иконок */
       text-align: center;
     }
+    .avatar {
+      width: 120px;          /* размер аватарки */
+      height: 120px;
+      border-radius: 50%;    /* делает её круглой */
+      object-fit: cover;     /* обрезает по кругу без искажений */
+      margin-bottom: 20px;   /* отступ вниз */
+      border: 3px solid #fff; /* белая рамка (можно убрать) */
+    }
   </style>
 </head>
 <body>
+  <img src="avatar.jpg" alt="Моя аватарка" class="avatar">
   <h1>My socials</h1>
   <div class="links">
     <a class="link" href="https://sketchfab.com/sergeilihandristov" target="_blank">
