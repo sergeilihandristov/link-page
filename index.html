@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My socials</title>
-  <!-- Подключаем иконки Font Awesome -->
+  <!-- Иконки -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
@@ -26,9 +26,9 @@
     }
     .link {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      gap: 10px;
       padding: 15px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 12px;
@@ -36,20 +36,25 @@
       color: #fff;
       font-size: 18px;
       transition: background 0.3s;
-      cursor: pointer;
+      flex-direction: row;
     }
     .link:hover {
       background: rgba(255, 255, 255, 0.25);
     }
-    .link-top {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .link-top i {
+    .link i {
       font-size: 22px;
       width: 25px;
       text-align: center;
+    }
+    .link-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .subtext {
+      font-size: 12px;
+      color: #ccc;
+      margin-top: 4px;
     }
     .avatar {
       width: 120px;
@@ -59,22 +64,14 @@
       margin-bottom: 20px;
       border: 3px solid #fff;
     }
-    .subtext {
-      font-size: 12px;
-      color: #ccc;
-      margin-top: 2px;
-    }
-
-    /* --- Модальное окно --- */
+    /* Стили модального окна */
     .modal {
-      display: none; /* скрыто по умолчанию */
+      display: none;
       position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
       justify-content: center;
       align-items: center;
     }
@@ -83,27 +80,25 @@
       color: #000;
       padding: 20px;
       border-radius: 12px;
-      max-width: 300px;
+      max-width: 400px;
       text-align: center;
-      position: relative;
     }
-    .modal-content img {
-      width: 150px;
+    .modal-content h2 {
       margin-bottom: 15px;
     }
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #000;
-      cursor: pointer;
+    .qr-block {
+      margin: 15px 0;
     }
-    .wallet {
-      font-size: 14px;
-      margin: 8px 0;
-      word-break: break-all;
+    .qr-block img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 8px;
+    }
+    .close {
+      margin-top: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #872d2c;
     }
   </style>
 </head>
@@ -112,86 +107,67 @@
   <h1>My socials</h1>
   <div class="links">
     <a class="link" href="https://sketchfab.com/sergeilihandristov" target="_blank">
-      <div class="link-top">
-        <i class="fab fa-uncharted"></i>
-        <span>Sketchfab</span>
-      </div>
+      <i class="fab fa-uncharted"></i> Sketchfab
     </a>
-
     <a class="link" href="https://artstation.com/sergeilihandristov" target="_blank">
-      <div class="link-top">
-        <i class="fab fa-artstation"></i>
-        <span>Artstation</span>
-      </div>
+      <i class="fab fa-artstation"></i> Artstation
     </a>
-
     <a class="link" href="mailto:sergeilihandristov@gmail.com" target="_blank">
-      <div class="link-top">
-        <i class="fa-regular fa-envelope"></i>
-        <span>E-mail</span>
-      </div>
+      <i class="fa-regular fa-envelope"></i> E-mail
     </a>
-
     <a class="link" href="https://instagram.com/sergeilikhandristov" target="_blank">
-      <div class="link-top">
-        <i class="fab fa-instagram"></i>
-        <span>Instagram</span>
-      </div>
+      <i class="fab fa-instagram"></i> Instagram
     </a>
-
     <a class="link" href="https://t.me/Archangel1408" target="_blank">
-      <div class="link-top">
-        <i class="fab fa-telegram"></i>
-        <span>Telegram</span>
-      </div>
+      <i class="fab fa-telegram"></i> Telegram
     </a>
-
     <a class="link" href="https://t.me/+KaH0ltQxGB9iN2Ey" target="_blank">
-      <div class="link-top">
-        <i class="fab fa-telegram"></i>
-        <span>Telegram Group</span>
+      <i class="fab fa-telegram"></i>
+      <div class="link-text">
+        Telegram Group
+        <div class="subtext">new models here</div>
       </div>
-      <div class="subtext">new models here</div>
     </a>
-
     <a class="link" href="https://x.com/SLihandristov" target="_blank">
-      <div class="link-top">
-        <i class="fab fa-x-twitter"></i>
-        <span>X (Twitter)</span>
-      </div>
+      <i class="fab fa-x-twitter"></i> X (Twitter)
     </a>
-
-    <!-- КНОПКА Поблагодарить -->
-    <div class="link" id="donateBtn">
-      <div class="link-top">
-        <i class="fa-solid fa-heart"></i>
-        <span>Поблагодарить</span>
-      </div>
-    </div>
+    <!-- Кнопка поблагодарить -->
+    <a class="link" href="#" onclick="openModal()">
+      <i class="fa-solid fa-heart"></i> Поблагодарить
+    </a>
   </div>
 
   <!-- Модальное окно -->
   <div id="donateModal" class="modal">
     <div class="modal-content">
-      <span class="close" id="closeModal">&times;</span>
-      <h2>Спасибо за поддержку!</h2>
-      <img src="qrcode.png" alt="QR Code">
-      <div class="wallet"><b>BTC:</b> bc1qxyz123...</div>
-      <div class="wallet"><b>ETH:</b> 0xabc123...</div>
-      <div class="wallet"><b>USDT (TRC20):</b> Txyz123...</div>
+      <h2>Поддержка</h2>
+      <div class="qr-block">
+        <h3>USDT</h3>
+        <img src="usdt_qr.png" alt="USDT QR">
+        <div>Адрес: <br><small>your-usdt-wallet-here</small></div>
+      </div>
+      <div class="qr-block">
+        <h3>BTC</h3>
+        <img src="btc_qr.png" alt="BTC QR">
+        <div>Адрес: <br><small>your-btc-wallet-here</small></div>
+      </div>
+      <div class="close" onclick="closeModal()">Закрыть</div>
     </div>
   </div>
 
   <script>
-    const donateBtn = document.getElementById("donateBtn");
-    const donateModal = document.getElementById("donateModal");
-    const closeModal = document.getElementById("closeModal");
-
-    donateBtn.onclick = () => donateModal.style.display = "flex";
-    closeModal.onclick = () => donateModal.style.display = "none";
-    window.onclick = (e) => {
-      if (e.target === donateModal) donateModal.style.display = "none";
-    };
+    function openModal() {
+      document.getElementById('donateModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('donateModal').style.display = 'none';
+    }
+    window.onclick = function(event) {
+      const modal = document.getElementById('donateModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
   </script>
 </body>
 </html>
